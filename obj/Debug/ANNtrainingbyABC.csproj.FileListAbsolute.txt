@@ -1,0 +1,12 @@
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\bin\Debug\ANNtrainingbyABC.exe.config
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\bin\Debug\ANNtrainingbyABC.exe
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\bin\Debug\ANNtrainingbyABC.pdb
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.csproj.AssemblyReference.cache
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.csproj.SuggestedBindingRedirects.cache
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.Form1.resources
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.Properties.Resources.resources
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.csproj.GenerateResource.cache
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.csproj.CoreCompileInputs.cache
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.exe
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.pdb
+C:\Users\Hamdan\Desktop\My Master Files\ANNtrainingbyABC\obj\Debug\ANNtrainingbyABC.frmWaitForm.resources
