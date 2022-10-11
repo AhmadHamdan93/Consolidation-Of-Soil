@@ -311,7 +311,7 @@ namespace ANNtrainingbyABC
         {
             // search by bee colony
             // population , input , y 
-            bee = new Bee(populations, input, y, Weights, Neurons, Epocs);
+            bee = new Bee(populations, input, y, Weights, Neurons, 2000); //Epocs 10000
             bee.Search();
             // // save data on weights matrix
             double[] arr = bee.getBestSolution();

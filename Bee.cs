@@ -38,7 +38,7 @@ namespace ANNtrainingbyABC
             D = solutions.GetLength(1) - 1;
             iteration = Epocs; //1000; //300;
             //limit = food * D ;
-            limit = 10;
+            limit = 1000;
             trail = new int[food];
             population = solutions;
             probability = new double[food];
@@ -116,8 +116,8 @@ namespace ANNtrainingbyABC
                 ScouterBee();
 
                 // save array of error
-                MAE_Errors[iter] = OptimumSol[D]; // MAE_Calc(OptimumSol);
-                RMSE_Errors[iter] = RMSE_Calc(OptimumSol); // OptimumSol[D];
+                MAE_Errors[iter] = MAE_Calc(OptimumSol); // MAE_Calc(OptimumSol);OptimumSol[D]
+                RMSE_Errors[iter] = OptimumSol[D];//RMSE_Calc(OptimumSol); // OptimumSol[D];
 
             }
             // here we should find mae error
@@ -131,6 +131,29 @@ namespace ANNtrainingbyABC
         }
 
         double RMSE_Calc(double[] sol)
+        {
+            // this function work to find RMSE Error 
+
+            double[][,] tempWeights = convert1D_to_3D(sol);
+            double result = 0.0;
+            int lenData = trainingData.GetLength(0);
+            int d = trainingData[0].GetLength(0);
+            for (int i = 0; i < lenData; i++)
+            {
+                double[] rowData = new double[trainingData[0].GetLength(0)];
+                // fetch row from training data then send it to predict
+                rowData = getRowFromArray(trainingData, i);
+                // calculate output from predict
+                double[] outputPredict = Predict(rowData, tempWeights);
+                // calculate error 
+                result += Math.Abs((outputPredict[0] - outputTrainingData[i])) * (outputPredict[0] - outputTrainingData[i]);
+            }
+            result = result / lenData;
+            result = Math.Sqrt(result);
+            return result;
+        }
+
+        double MAE_Calc(double[] sol)
         {
             // this function work to find MAE Error 
 
@@ -149,7 +172,7 @@ namespace ANNtrainingbyABC
                 result += Math.Abs((outputPredict[0] - outputTrainingData[i]));//* (outputPredict[0] - outputTrainingData[i]);
             }
             result = result / lenData;
-            result = Math.Sqrt(result);
+            //result = Math.Sqrt(result);
             return result;
         }
 
@@ -158,15 +181,16 @@ namespace ANNtrainingbyABC
             int i, t;
             i = 0;
             t = 0;
-            int counter = 0;
+            //int counter = 0;
             /*onlooker Bee Phase*/
             while (t < food)
             {
-                counter++; // for break loop
-                double r = rand.NextDouble() / 50.0;
-                if (r < probability[i]) /*choose a food source depending on its probability to be chosen*/
-                {
-                    t++;
+                i = findMaxProb(probability);
+                //counter++; // for break loop
+                //double r = rand.NextDouble() / 50.0;
+                //if (r < probability[i]) /*choose a food source depending on its probability to be chosen*/
+                //{
+                t++;
                     //--------------------------
 
                     int neighbor = rand.Next(food);
@@ -187,24 +211,36 @@ namespace ANNtrainingbyABC
                     }
                     break; // for finish loop
                     //---------------------------
-                }
-                i++;
-                if (i == food)
-                    i = 0;
+                //}
+                //i++;
+                //if (i == food)
+                //    i = 0;
 
-                // -----------------------------
-                //----------- here problem is probabality is zero or very near to zero
-                // for this reson i want to solve it by skip every sol near to zero
-                if (counter >= food * food) //(probability[i] < 0.01)  // 0.0001
-                {
-                    break;
-                }
+                //// -----------------------------
+                ////----------- here problem is probabality is zero or very near to zero
+                //// for this reson i want to solve it by skip every sol near to zero
+                //if (counter >= food * food) //(probability[i] < 0.01)  // 0.0001
+                //{
+                //    break;
+                //}
                 // -----------------------------
                 // -----------------------------
 
             }/*while*/
 
             /*end of onlooker bee phase     */
+        }
+
+        public int findMaxProb(double[] arr)
+        {
+            double max = arr[0];
+            int idx = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (max >= arr[i])
+                    idx = i;
+            }
+            return idx;
         }
 
         public void WorkerBee()

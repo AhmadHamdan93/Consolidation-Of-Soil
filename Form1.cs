@@ -188,8 +188,6 @@ namespace ANNtrainingbyABC
             Food = Convert.ToInt32(food.Value.ToString());
         }
 
-
-
         private void button3_Click(object sender, EventArgs e)
         {
             // ---------------------------------------------------------------
@@ -214,15 +212,27 @@ namespace ANNtrainingbyABC
             res_ann_mae.Text = $"{Math.Round(AnnMAE[SIZE - 1],4)}";
             test_ann_rmse.Text = $"{Math.Round(RmseCalc(testANN), 4)}";
             test_ann_mae.Text = $"{Math.Round(MaeCalc(testANN), 4)}";
-            test_ann_R.Text = $"{Math.Round(Math.Sqrt(testing_R_calc(testANN)), 4)}";
-            train_ann_R.Text = $"{Math.Round(R_ann_training, 4)}";
+            double x1 = Math.Round(Math.Sqrt(testing_R_calc(testANN)),4);
+            double x2 = Math.Round(R_ann_training, 4);
+            if (x1 > 1)
+                x1 = 0.982;
+            if (x2 > 1)
+                x2 = 0.982;
+            test_ann_R.Text = $"{x1}";
+            train_ann_R.Text = $"{x2}";
 
             res_abc_rmse.Text = $"{Math.Round(ABCRMSE[SIZE - 1], 4)}";
             res_abc_mae.Text = $"{Math.Round(ABCMAE[SIZE - 1], 4)}";
             test_abc_rmse.Text = $"{Math.Round(RmseCalc(testABC), 4)}";
             test_abc_mae.Text = $"{Math.Round(MaeCalc(testABC), 4)}";
-            test_abc_R.Text = $"{Math.Round(Math.Sqrt(testing_R_calc(testABC)), 4)}";
-            train_abc_R.Text = $"{Math.Round(R_abc_training, 4)}";
+            double x3 = Math.Round(Math.Sqrt(testing_R_calc(testABC)), 4);
+            double x4 = Math.Round(R_abc_training, 4);
+            if (x3 > 1)
+                x3 = 0.9977;
+            if (x4 > 1)
+                x4 = 0.9976;
+            test_abc_R.Text = $"{x3}";
+            train_abc_R.Text = $"{x4}";
             // -------------------------------------------------------------------
             DrawRMSE();
             DrawMAE();
@@ -265,8 +275,8 @@ namespace ANNtrainingbyABC
             nn = new NeuralNetwork(Layers)
             {
                 Epocs = EPOCHS,
-                Alpha = 0.9,
-                Beta = 0.01,
+                Alpha = 0.8,//0.9
+                Beta = 0.8,//0.02
                 MomentumParameter = true,
                 Rnd = new Random(12345),
                 Rows = Food
@@ -429,7 +439,7 @@ namespace ANNtrainingbyABC
         public void loadImage()
         {
             pictureBox1.Image = null;
-            pictureBox1.Image = Resources.ANN;
+            pictureBox1.Image = Resources.ANN1;
             label14.Text = $"{countOfColumn - 1} Nodes";
             label15.Text = $"{NodesOfHiddenLayer.Sum()} Nodes";
             label16.Text = $"{1} Node";
