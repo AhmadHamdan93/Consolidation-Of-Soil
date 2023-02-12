@@ -26,6 +26,8 @@ namespace ANNtrainingbyABC
         // array for save test Trainnig data for both wise
         double[] testANN;
         double[] testABC;
+        double[] trainANN;
+        double[] trainABC;
         //---------------------------
         double[][] train;
         double[][] test;
@@ -212,12 +214,9 @@ namespace ANNtrainingbyABC
             res_ann_mae.Text = $"{Math.Round(AnnMAE[SIZE - 1],4)}";
             test_ann_rmse.Text = $"{Math.Round(RmseCalc(testANN), 4)}";
             test_ann_mae.Text = $"{Math.Round(MaeCalc(testANN), 4)}";
-            double x1 = Math.Round(Math.Sqrt(testing_R_calc(testANN)),4);
+            double x1 = Math.Round((testing_R_calc(testANN)),4);
             double x2 = Math.Round(R_ann_training, 4);
-            if (x1 > 1)
-                x1 = 0.982;
-            if (x2 > 1)
-                x2 = 0.982;
+
             test_ann_R.Text = $"{x1}";
             train_ann_R.Text = $"{x2}";
 
@@ -225,12 +224,9 @@ namespace ANNtrainingbyABC
             res_abc_mae.Text = $"{Math.Round(ABCMAE[SIZE - 1], 4)}";
             test_abc_rmse.Text = $"{Math.Round(RmseCalc(testABC), 4)}";
             test_abc_mae.Text = $"{Math.Round(MaeCalc(testABC), 4)}";
-            double x3 = Math.Round(Math.Sqrt(testing_R_calc(testABC)), 4);
+            double x3 = Math.Round((testing_R_calc(testABC)), 4);
             double x4 = Math.Round(R_abc_training, 4);
-            if (x3 > 1)
-                x3 = 0.9977;
-            if (x4 > 1)
-                x4 = 0.9976;
+
             test_abc_R.Text = $"{x3}";
             train_abc_R.Text = $"{x4}";
             // -------------------------------------------------------------------
@@ -243,16 +239,62 @@ namespace ANNtrainingbyABC
 
         private void loadOutput()
         {
-            DataTable mydt = new DataTable();
-            mydt.Columns.Add("Real Output");
-            mydt.Columns.Add("ANN Output");
-            mydt.Columns.Add("ABC Output");
-            for (int i = 0; i < testANN.Length; i++)
-            {
-                object[] a = { Math.Round(test[i][Layers[0]],5), Math.Round(testANN[i],5), Math.Round(testABC[i], 5) }; 
-                mydt.Rows.Add(a);
-            }
-            dataGridView1.DataSource = mydt;
+            //DataTable mydt = new DataTable();
+            //mydt.Columns.Add("Real Output");
+            //mydt.Columns.Add("ANN Output");
+            //mydt.Columns.Add("ABC Output");
+            //for (int i = 0; i < testANN.Length; i++)
+            //{
+            //    object[] a = { Math.Round(test[i][Layers[0]],5), Math.Round(testANN[i],5), Math.Round(testABC[i], 5) }; 
+            //    mydt.Rows.Add(a);
+            //}
+            //dataGridView1.DataSource = mydt;
+            int sizeSample = train.Length;
+            //if (test.Length > SIZE)
+            //    sizeSample = SIZE;
+            //else
+            //    sizeSample = test.Length;
+            var objChart = chart4.ChartAreas[0];
+            objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            //month 1-12
+            objChart.AxisX.Minimum = 0;
+            objChart.AxisX.Maximum = sizeSample;
+            objChart.AxisX.Interval = sizeSample / 5;
+            
+
+            //clear
+            chart4.Series.Clear();
+            // add first line
+            chart4.Series.Add("Real Output");
+            chart4.Series["Real Output"].IsVisibleInLegend = false;
+            chart4.Series["Real Output"].Color = Color.Red;
+            chart4.Series["Real Output"].Legend = "Legend1";
+            chart4.Series["Real Output"].ChartArea = "ChartArea1";
+            chart4.Series["Real Output"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            // add second line
+            chart4.Series.Add("ANN Output");
+            chart4.Series["ANN Output"].IsVisibleInLegend = false;
+            chart4.Series["ANN Output"].Color = Color.Green;
+            chart4.Series["ANN Output"].Legend = "Legend1";
+            chart4.Series["ANN Output"].ChartArea = "ChartArea1";
+            chart4.Series["ANN Output"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            // add third line
+            chart4.Series.Add("ABC Output");
+            chart4.Series["ABC Output"].IsVisibleInLegend = false;
+            chart3.Series["ABC Output"].Color = Color.Blue;
+            chart4.Series["ABC Output"].Legend = "Legend1";
+            chart4.Series["ABC Output"].ChartArea = "ChartArea1";
+            chart4.Series["ABC Output"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            //adding data of first line
+            for (int i = 0; i < sizeSample; i++)
+                chart4.Series["Real Output"].Points.AddXY(i, train[i][Layers[0]]);
+            //adding data of second line
+            for (int i = 0; i < sizeSample; i++)
+                chart4.Series["ANN Output"].Points.AddXY(i, trainANN[i]); //testANN[i]
+            //adding data of third line
+            for (int i = 0; i < sizeSample; i++)
+                chart4.Series["ABC Output"].Points.AddXY(i, trainABC[i]);
+
         }
 
         private void TrainAlgorithm()
@@ -301,25 +343,31 @@ namespace ANNtrainingbyABC
             // ---------------------------------------------------------------
             // ---------------------------------------------------------------
             // train ANN algorithm 
+            trainANN = new double[train.GetLength(0)];
+            trainABC = new double[train.GetLength(0)];
             nn.Train(input, y);
             AnnRMSE = nn.getAnnRMSE(SIZE);
             AnnMAE = nn.getAnnMAE(SIZE);
-            R_ann_training = Math.Sqrt(nn.get_R_training(input, y));
+            
             // save tset some data for shoow it
             for (int i = 0; i < testANN.Length; i++)
                 testANN[i] = nn.Predict(withOutTarget(test[i]))[0];
-
+            for (int i = 0; i < trainANN.Length; i++)
+                trainANN[i] = nn.Predict(withOutTarget(train[i]))[0];
+            R_ann_training = (nn.get_R_training(input, y));
             // ---------------------------------------------------------------
             // ---------------------------------------------------------------
             // train ABC algorithm 
             nn.BeeTraining(input, y);
             ABCRMSE = nn.getAbcRMSE(SIZE);
             ABCMAE = nn.getAbcMAE(SIZE);
-            R_abc_training = Math.Sqrt(nn.get_R_training(input, y));
+            //R_abc_training = Math.Sqrt(nn.get_R_training(input, y));
             // save tset some data for shoow it
             for (int i = 0; i < testABC.Length; i++)
                 testABC[i] = nn.Predict(withOutTarget(test[i]))[0];
-            
+            for (int i = 0; i < trainABC.Length; i++)
+                trainABC[i] = nn.Predict(withOutTarget(train[i]))[0];
+            R_abc_training = (nn.get_R_training(input, y));
             // ---------------------------------------------------------------
             // ---------------------------------------------------------------
 
@@ -393,11 +441,11 @@ namespace ANNtrainingbyABC
 
         public void DrawSamplePoint()
         {
-            int sizeSample;
-            if(test.Length > SIZE)
-                sizeSample = SIZE;
-            else
-                sizeSample = test.Length;
+            int sizeSample = test.Length;
+            //if (test.Length > SIZE)
+            //    sizeSample = SIZE;
+            //else
+            //    sizeSample = test.Length;
             var objChart = chart3.ChartAreas[0];
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             //month 1-12
@@ -515,19 +563,31 @@ namespace ANNtrainingbyABC
             double realMinusAvg = 0.0;
             for(int i = 0; i < arr.Length; i++)
             {
-                predictMinusAvg += (arr[i] - outputAvg) * (arr[i] - outputAvg);
+                predictMinusAvg += (arr[i] - test[i][Layers[0]]) * (arr[i] - test[i][Layers[0]]);
             }
             for (int i = 0; i < test.Length; i++)
             {
                 realMinusAvg += (test[i][Layers[0]] - outputAvg) * (test[i][Layers[0]] - outputAvg);
             }
-            return predictMinusAvg / realMinusAvg;
+            return 1 - (predictMinusAvg / realMinusAvg);
+
+        }
+
+        public double getAVG(double[] y)
+        {
+            double result = 0.0;
+            for (int i = 0; i < y.Length; i++)
+            {
+                result += y[i];
+            }
+            result = result / y.Length;
+            return result;
         }
 
         public double AVGcalc()
         {
             double result = 0.0;
-            for(int i = 0; i < test.Length; i++)
+            for (int i = 0; i < test.Length; i++)
             {
                 result += test[i][Layers[0]];
             }
@@ -547,7 +607,99 @@ namespace ANNtrainingbyABC
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //string createText = "Hello and Welcome" + Environment.NewLine;
+            
+            // train 
+            string s = "trainANN =[";
+            for(int i = 0; i < train.Length; i++)
+            {
+                s += trainANN[i];   //train[i][Layers[0]];
+                if(i < train.Length - 1)
+                {
+                    s += "\t";
+                }
+                else
+                {
+                    s += "];";
+                }
+            }
+            s += '\n';
+            s += "trainABC =[";
+            for (int i = 0; i < train.Length; i++)
+            {
+                s += trainABC[i];   //train[i][Layers[0]];
+                if (i < train.Length - 1)
+                {
+                    s += "\t";
+                }
+                else
+                {
+                    s += "];";
+                }
+            }
+            s += '\n';
+            s += "train =[";
+            for (int i = 0; i < train.Length; i++)
+            {
+                s += train[i][Layers[0]];
+                if (i < train.Length - 1)
+                {
+                    s += "\t";
+                }
+                else
+                {
+                    s += "];";
+                }
+            }
+            s += '\n';
+
+            // test 
+            s += "testANN =[";
+            for (int i = 0; i < test.Length; i++)
+            {
+                s += testANN[i];   //train[i][Layers[0]];
+                if (i < test.Length - 1)
+                {
+                    s += "\t";
+                }
+                else
+                {
+                    s += "];";
+                }
+            }
+            s += '\n';
+            s += "testABC =[";
+            for (int i = 0; i < test.Length; i++)
+            {
+                s += testABC[i];   //train[i][Layers[0]];
+                if (i < test.Length - 1)
+                {
+                    s += "\t";
+                }
+                else
+                {
+                    s += "];";
+                }
+            }
+            s += '\n';
+            s += "test =[";
+            for (int i = 0; i < test.Length; i++)
+            {
+                s += test[i][Layers[0]];
+                if (i < test.Length - 1)
+                {
+                    s += "\t";
+                }
+                else
+                {
+                    s += "];";
+                }
+            }
+            s += '\n';
+            File.WriteAllText("C:\\Users\\Hamdan\\Desktop\\trainPhase.txt", s);
+
 
         }
+    
     }
 }
