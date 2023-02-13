@@ -299,6 +299,9 @@ namespace ANNtrainingbyABC
 
         private void TrainAlgorithm()
         {
+            bool classification = true;
+            if (classify.Checked) classification = true;
+            if (regress.Checked) classification = false;
             Food = Convert.ToInt32(food.Value.ToString());
             //Limit = Convert.ToInt32(limit.Value.ToString());
             EPOCHS = Convert.ToInt32(epochNumber.Value.ToString());
@@ -321,7 +324,8 @@ namespace ANNtrainingbyABC
                 Beta = 0.8,//0.02
                 MomentumParameter = true,
                 Rnd = new Random(12345),
-                Rows = Food
+                Rows = Food,
+                classification = classification
             };
             // ---------------------------------------------------------
             // ---------------------------------------------------------------

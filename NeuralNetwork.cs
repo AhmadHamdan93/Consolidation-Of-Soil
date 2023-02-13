@@ -24,7 +24,7 @@ namespace ANNtrainingbyABC
         private double[,] populations;
         public int Rows { get; set; } = 50;
 
-
+        public bool classification { get; set; } = true;
         public int Epocs { get; set; }
         public bool MomentumParameter { get; set; }
         public double Beta { get; set; }
@@ -235,7 +235,10 @@ namespace ANNtrainingbyABC
             var output = new double[Neurons[outputlayer].Length];
             for (int n = 0; n < output.Length; n++)
                 output[n] = Neurons[outputlayer][n].output;
-
+            if(this.classification)
+            {
+                output[0] = Math.Round(output[0]);
+            }
             return output;
         }
 
@@ -338,7 +341,7 @@ namespace ANNtrainingbyABC
         {
             // search by bee colony
             // population , input , y 
-            bee = new Bee(populations, input, y, Weights, Neurons, 200); //Epocs 10000
+            bee = new Bee(populations, input, y, Weights, Neurons, 200, classification); //Epocs 10000
             bee.Search();
             // // save data on weights matrix
             double[] arr = bee.getBestSolution();
@@ -350,7 +353,7 @@ namespace ANNtrainingbyABC
         {
             // search by bee colony
             // population , input , y 
-            adabee = new AdaptiveBee(populations, input, y, Weights, Neurons, 100); //Epocs 10000
+            adabee = new AdaptiveBee(populations, input, y, Weights, Neurons, 100, classification); //Epocs 10000
             adabee.Search();
             // // save data on weights matrix
             double[] arr = adabee.getBestSolution();

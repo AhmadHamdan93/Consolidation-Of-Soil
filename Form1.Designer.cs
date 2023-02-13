@@ -31,15 +31,15 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.numCol = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -108,7 +109,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.regress = new System.Windows.Forms.RadioButton();
+            this.classify = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -124,13 +126,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.epochNumber)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -284,6 +286,8 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.SeaShell;
+            this.groupBox5.Controls.Add(this.classify);
+            this.groupBox5.Controls.Add(this.regress);
             this.groupBox5.Controls.Add(this.groupBox8);
             this.groupBox5.Controls.Add(this.hiddenLayerNumber);
             this.groupBox5.Controls.Add(this.inputNodes);
@@ -381,7 +385,7 @@
             // hiddenLayerNumber
             // 
             this.hiddenLayerNumber.AutoSize = true;
-            this.hiddenLayerNumber.Location = new System.Drawing.Point(199, 56);
+            this.hiddenLayerNumber.Location = new System.Drawing.Point(199, 64);
             this.hiddenLayerNumber.Name = "hiddenLayerNumber";
             this.hiddenLayerNumber.Size = new System.Drawing.Size(13, 13);
             this.hiddenLayerNumber.TabIndex = 1;
@@ -390,7 +394,7 @@
             // inputNodes
             // 
             this.inputNodes.AutoSize = true;
-            this.inputNodes.Location = new System.Drawing.Point(199, 22);
+            this.inputNodes.Location = new System.Drawing.Point(199, 43);
             this.inputNodes.Name = "inputNodes";
             this.inputNodes.Size = new System.Drawing.Size(10, 13);
             this.inputNodes.TabIndex = 1;
@@ -399,7 +403,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 56);
+            this.label7.Location = new System.Drawing.Point(8, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 13);
             this.label7.TabIndex = 0;
@@ -408,7 +412,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 22);
+            this.label6.Location = new System.Drawing.Point(8, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(167, 13);
             this.label6.TabIndex = 0;
@@ -512,7 +516,7 @@
             0,
             0});
             this.epochNumber.Minimum = new decimal(new int[] {
-            100,
+            10,
             0,
             0,
             0});
@@ -522,7 +526,7 @@
             this.epochNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.epochNumber.ThousandsSeparator = true;
             this.epochNumber.Value = new decimal(new int[] {
-            500,
+            50,
             0,
             0,
             0});
@@ -604,6 +608,26 @@
             this.chart2.Size = new System.Drawing.Size(362, 200);
             this.chart2.TabIndex = 3;
             this.chart2.Text = "chart1";
+            // 
+            // chart4
+            // 
+            this.chart4.BorderlineColor = System.Drawing.Color.Black;
+            this.chart4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chart4.Legends.Add(legend2);
+            this.chart4.Location = new System.Drawing.Point(374, 430);
+            this.chart4.Name = "chart4";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart4.Series.Add(series2);
+            this.chart4.Size = new System.Drawing.Size(362, 200);
+            this.chart4.TabIndex = 3;
+            this.chart4.Text = "chart1";
             // 
             // chart3
             // 
@@ -963,25 +987,27 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // chart4
+            // regress
             // 
-            this.chart4.BorderlineColor = System.Drawing.Color.Black;
-            this.chart4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart4.Legends.Add(legend2);
-            this.chart4.Location = new System.Drawing.Point(374, 430);
-            this.chart4.Name = "chart4";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart4.Series.Add(series2);
-            this.chart4.Size = new System.Drawing.Size(362, 200);
-            this.chart4.TabIndex = 3;
-            this.chart4.Text = "chart1";
+            this.regress.AutoSize = true;
+            this.regress.Location = new System.Drawing.Point(12, 21);
+            this.regress.Name = "regress";
+            this.regress.Size = new System.Drawing.Size(78, 17);
+            this.regress.TabIndex = 3;
+            this.regress.Text = "Regression";
+            this.regress.UseVisualStyleBackColor = true;
+            // 
+            // classify
+            // 
+            this.classify.AutoSize = true;
+            this.classify.Checked = true;
+            this.classify.Location = new System.Drawing.Point(152, 19);
+            this.classify.Name = "classify";
+            this.classify.Size = new System.Drawing.Size(86, 17);
+            this.classify.TabIndex = 3;
+            this.classify.TabStop = true;
+            this.classify.Text = "Classification";
+            this.classify.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1021,6 +1047,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox9.ResumeLayout(false);
@@ -1029,7 +1056,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1105,6 +1131,8 @@
         private System.Windows.Forms.Label train_abc_R;
         private System.Windows.Forms.Label train_ann_R;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
+        private System.Windows.Forms.RadioButton classify;
+        private System.Windows.Forms.RadioButton regress;
     }
 }
 

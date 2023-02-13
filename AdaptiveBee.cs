@@ -19,6 +19,7 @@ namespace ANNtrainingbyABC
         Random rand;
         int ub;
         int lb;
+        bool classification;
         // save some data from neural network for evaluate solution
         double[][] trainingData;
         double[] outputTrainingData;
@@ -35,7 +36,7 @@ namespace ANNtrainingbyABC
         // for adaptive abc we use mean of probability when on looker and replace the minimum proba
         double MeanOfProbability = 0.0;
 
-        public AdaptiveBee(double[,] solutions, double[][] input, double[] y, double[][,] W, Neuron[][] N, int Epocs)
+        public AdaptiveBee(double[,] solutions, double[][] input, double[] y, double[][,] W, Neuron[][] N, int Epocs, bool classification)
         {
             food = solutions.GetLength(0);
             D = solutions.GetLength(1) - 1;
@@ -57,6 +58,7 @@ namespace ANNtrainingbyABC
             //MAE_Error = 0.0;
             MAE_Errors = new double[Epocs];
             RMSE_Errors = new double[Epocs];
+            this.classification = classification;
         }
 
         public double[] getBestSolution()
@@ -452,7 +454,10 @@ namespace ANNtrainingbyABC
             var output = new double[Neurons[outputlayer].Length];
             for (int n = 0; n < output.Length; n++)
                 output[n] = Neurons[outputlayer][n].output;
-
+            if (this.classification)
+            {
+                output[0] = Math.Round(output[0]);
+            }
             return output;
         }
 
