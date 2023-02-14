@@ -232,9 +232,11 @@ namespace ANNtrainingbyABC
             // -------------------------------------------------------------------
             DrawRMSE();
             DrawMAE();
+            
             DrawSamplePoint();
             loadImage();
             loadOutput();
+            accuracyCalc();
         }
 
         private void loadOutput()
@@ -320,8 +322,8 @@ namespace ANNtrainingbyABC
             nn = new NeuralNetwork(Layers)
             {
                 Epocs = EPOCHS,
-                Alpha = 0.8,//0.9
-                Beta = 0.8,//0.02
+                Alpha = 0.9,//0.9
+                Beta = 0.02,//0.02
                 MomentumParameter = true,
                 Rnd = new Random(12345),
                 Rows = Food,
@@ -361,11 +363,13 @@ namespace ANNtrainingbyABC
             R_ann_training = (nn.get_R_training(input, y));
             // ---------------------------------------------------------------
             // ---------------------------------------------------------------
-            // train ABC algorithm 
-            nn.BeeTraining(input, y);
-            ABCRMSE = nn.getAbcRMSE(SIZE);
-            ABCMAE = nn.getAbcMAE(SIZE);
-            //R_abc_training = Math.Sqrt(nn.get_R_training(input, y));
+            // train ABC algorithm
+
+            nn.BeeTraining(input, y);   //BeeTraining(input, y); //AdaptiveBeeTraining
+            ABCRMSE = nn.getAbcRMSE(SIZE);      //  getAbcRMSE // getAdaptiveAbcRMSE
+            ABCMAE = nn.getAbcMAE(SIZE);                //  getAbcMAE // getAdaptiveAbcMAE
+
+            R_abc_training = Math.Sqrt(nn.get_R_training(input, y));
             // save tset some data for shoow it
             for (int i = 0; i < testABC.Length; i++)
                 testABC[i] = nn.Predict(withOutTarget(test[i]))[0];
@@ -379,8 +383,8 @@ namespace ANNtrainingbyABC
 
         public void DrawRMSE()
         {
-            if(ABCRMSE[0] < AnnRMSE[0])
-                ABCRMSE[0] = AnnRMSE[0];
+            //if(ABCRMSE[0] < AnnRMSE[0])
+            //    ABCRMSE[0] = AnnRMSE[0];
             var objChart = chart1.ChartAreas[0];
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             //month 1-12
@@ -406,14 +410,14 @@ namespace ANNtrainingbyABC
             for (int i = 0; i < AnnRMSE.Length; i++)
                 chart1.Series["ANN RMSE"].Points.AddXY(i * (EPOCHS/SIZE), AnnRMSE[i]);
             //adding data of second line
-            for (int i = 0; i < AnnRMSE.Length; i++)
-                chart1.Series["ABC RMSE"].Points.AddXY(i * (EPOCHS / SIZE), ABCRMSE[i]);
+            //for (int i = 0; i < AnnRMSE.Length; i++)
+            //    chart1.Series["ABC RMSE"].Points.AddXY(i * (EPOCHS / SIZE), ABCRMSE[i]);
         }
 
         public void DrawMAE()
         {
-            if(ABCMAE[0] < AnnMAE[0])
-                ABCMAE[0] = AnnMAE[0];
+            //if(ABCMAE[0] < AnnMAE[0])
+            //    ABCMAE[0] = AnnMAE[0];
             var objChart = chart2.ChartAreas[0];
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             //month 1-12
@@ -439,8 +443,8 @@ namespace ANNtrainingbyABC
             for (int i = 0; i < AnnMAE.Length; i++)
                 chart2.Series["ANN MAE"].Points.AddXY(i * (EPOCHS / SIZE), AnnMAE[i]);
             //adding data of second line
-            for (int i = 0; i < ABCMAE.Length; i++)
-                chart2.Series["ABC MAE"].Points.AddXY(i * (EPOCHS / SIZE), ABCMAE[i]);
+            //for (int i = 0; i < ABCMAE.Length; i++)
+            //    chart2.Series["ABC MAE"].Points.AddXY(i * (EPOCHS / SIZE), ABCMAE[i]);
         }
 
         public void DrawSamplePoint()
@@ -527,7 +531,7 @@ namespace ANNtrainingbyABC
             int count = 0;
             for (int i = 0; i < trainingData.GetLength(0); i++)
             {
-                if ((i % amount != 0)||(i >= amount * size_test))
+                if ((i % amount != 0) || (i >= amount * size_test))
                 {
                     for (int j = 0; j < trainingData[0].GetLength(0); j++)
                         train[count][j] = trainingData[i][j];
@@ -704,6 +708,141 @@ namespace ANNtrainingbyABC
 
 
         }
-    
+
+        private void accuracyCalc()
+        {
+            //int correctTrainValue = 0;
+            //int correctTestValue = 0;
+            //for(int i=0;i<test.Length; i++)
+            //{
+            //    if (test[i][Layers[0]]  == testANN[i])
+            //    {
+            //        correctTestValue++;
+            //    }
+            //}
+            //for (int i = 0; i < train.Length; i++)
+            //{
+            //    if (train[i][Layers[0]] == trainANN[i])
+            //    {
+            //        correctTrainValue++;
+            //    }
+            //}
+            //double accurcy_train = Math.Round(1.0 * correctTrainValue / train.Length, 2);
+            //double accurcy_test = Math.Round(1.0 * correctTestValue / test.Length, 2);
+            //string s1 = $"{correctTrainValue} / {train.Length} = {accurcy_train}";
+            //string s2 = $"{correctTestValue} / {test.Length} = {accurcy_test}";
+            //accuracyAnnTest.Text = s2;
+            //accuracyAnnTrain.Text = s1;
+            int ann_Tr_PP = 0; int ann_Tr_PN = 0; int ann_Tr_NP = 0; int ann_Tr_NN = 0;
+            int ann_Te_PP = 0; int ann_Te_PN = 0; int ann_Te_NP = 0; int ann_Te_NN = 0;
+            int abc_Tr_PP = 0; int abc_Tr_PN = 0; int abc_Tr_NP = 0; int abc_Tr_NN = 0;
+            int abc_Te_PP = 0; int abc_Te_PN = 0; int abc_Te_NP = 0; int abc_Te_NN = 0;
+            // for ann train phase
+            for (int i = 0; i < train.Length; i++)
+            {
+                if (train[i][Layers[0]] == 1)    // trainANN[i]
+                {
+                    if(trainANN[i] == 1)
+                        ann_Tr_PP++;
+                    else
+                        ann_Tr_PN++;
+                }
+                else
+                {
+                    if (trainANN[i] == 0)
+                        ann_Tr_NN++;
+                    else
+                        ann_Tr_NP++;
+                }
+            }
+            // for ann test phase
+            for (int i = 0; i < test.Length; i++)
+            {
+                if (test[i][Layers[0]] == 1)    // trainANN[i]
+                {
+                    if (testANN[i] == 1)
+                        ann_Te_PP++;
+                    else
+                        ann_Te_PN++;
+                }
+                else
+                {
+                    if (testANN[i] == 0)
+                        ann_Te_NN++;
+                    else
+                        ann_Te_NP++;
+                }
+            }
+            // for abc train phase
+            for (int i = 0; i < train.Length; i++)
+            {
+                if (train[i][Layers[0]] == 1)    // trainANN[i]
+                {
+                    if (trainABC[i] == 1)
+                        abc_Tr_PP++;
+                    else
+                        abc_Tr_PN++;
+                }
+                else
+                {
+                    if (trainABC[i] == 0)
+                        abc_Tr_NN++;
+                    else
+                        abc_Tr_NP++;
+                }
+            }
+            // for abc test phase
+            for (int i = 0; i < test.Length; i++)
+            {
+                if (test[i][Layers[0]] == 1)    // trainANN[i]
+                {
+                    if (testABC[i] == 1)
+                        abc_Te_PP++;
+                    else
+                        abc_Te_PN++;
+                }
+                else
+                {
+                    if (testABC[i] == 0)
+                        abc_Te_NN++;
+                    else
+                        abc_Te_NP++;
+                }
+            }
+            double accurcy_ann_train = Math.Round(1.0 * (ann_Tr_PP + ann_Tr_NN) / train.Length, 2);
+            double accurcy_ann_test = Math.Round(1.0 * (ann_Te_PP + ann_Te_NN) / test.Length, 2);
+            double accurcy_abc_train = Math.Round(1.0 * (abc_Tr_NN + abc_Tr_PP) / train.Length, 2);
+            double accurcy_abc_test = Math.Round(1.0 * (abc_Te_NN + abc_Te_PP) / test.Length, 2);
+
+            // show ann in form
+            annTrainPP.Text = ann_Tr_PP.ToString();
+            annTrainPN.Text = ann_Tr_PN.ToString();
+            annTrainNP.Text = ann_Tr_NP.ToString();
+            annTrainNN.Text = ann_Tr_NN.ToString();
+            // ---------------------------
+            annTestPP.Text = ann_Te_PP.ToString();
+            annTestPN.Text = ann_Te_PN.ToString();
+            annTestNP.Text = ann_Te_NP.ToString();
+            annTestNN.Text = ann_Te_NN.ToString();
+            // ---------------------------
+            // show abc in form
+            abcTrainPP.Text = abc_Tr_PP.ToString();
+            abcTrainPN.Text = abc_Tr_PN.ToString();
+            abcTrainNP.Text = abc_Tr_NP.ToString();
+            abcTrainNN.Text = abc_Tr_NN.ToString();
+            // ---------------------------
+            abcTestPP.Text = abc_Te_PP.ToString();
+            abcTestPN.Text = abc_Te_PN.ToString();
+            abcTestNP.Text = abc_Te_NP.ToString();
+            abcTestNN.Text = abc_Te_NN.ToString();
+            // ---------------------------
+            // show accuracy
+            annTrainAccuracy.Text = accurcy_ann_train.ToString();
+            annTestAccuracy.Text = accurcy_ann_test.ToString();
+            abcTrainAccuracy.Text = accurcy_abc_train.ToString();
+            abcTestAccuracy.Text = accurcy_abc_test.ToString();
+        }
+
+
     }
 }

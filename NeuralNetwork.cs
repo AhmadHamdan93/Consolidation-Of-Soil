@@ -269,7 +269,7 @@ namespace ANNtrainingbyABC
 
         private static double Sigmoid(double x)
         {
-            //if(x < 0)
+            //if (x < 0)
             //    return 0;
             //else
             //    return x;
@@ -341,7 +341,7 @@ namespace ANNtrainingbyABC
         {
             // search by bee colony
             // population , input , y 
-            bee = new Bee(populations, input, y, Weights, Neurons, 200, classification); //Epocs 10000
+            bee = new Bee(populations, input, y, Weights, Neurons, 1000, classification); //Epocs 10000
             bee.Search();
             // // save data on weights matrix
             double[] arr = bee.getBestSolution();
@@ -353,7 +353,7 @@ namespace ANNtrainingbyABC
         {
             // search by bee colony
             // population , input , y 
-            adabee = new AdaptiveBee(populations, input, y, Weights, Neurons, 100, classification); //Epocs 10000
+            adabee = new AdaptiveBee(populations, input, y, Weights, Neurons, 1000, classification); //Epocs 10000
             adabee.Search();
             // // save data on weights matrix
             double[] arr = adabee.getBestSolution();
