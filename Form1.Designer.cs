@@ -74,6 +74,42 @@
             this.epochNumber = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.abcTrainPP = new System.Windows.Forms.Label();
+            this.abcTrainPN = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.abcTrainNP = new System.Windows.Forms.Label();
+            this.abcTrainNN = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.abcTrainAccuracy = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.abcTestPP = new System.Windows.Forms.Label();
+            this.abcTestPN = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.abcTestNP = new System.Windows.Forms.Label();
+            this.abcTestNN = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.abcTestAccuracy = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.annTestPP = new System.Windows.Forms.Label();
+            this.annTestPN = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.annTestNP = new System.Windows.Forms.Label();
+            this.annTestNN = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.annTestAccuracy = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -123,42 +159,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.annTestPP = new System.Windows.Forms.Label();
-            this.annTestPN = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.annTestNP = new System.Windows.Forms.Label();
-            this.annTestNN = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.annTestAccuracy = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.abcTestPP = new System.Windows.Forms.Label();
-            this.abcTestPN = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.abcTestNP = new System.Windows.Forms.Label();
-            this.abcTestNN = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.abcTestAccuracy = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.abcTrainPP = new System.Windows.Forms.Label();
-            this.abcTrainPN = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.abcTrainNP = new System.Windows.Forms.Label();
-            this.abcTrainNN = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.abcTrainAccuracy = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -173,6 +173,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layerNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epochNumber)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
@@ -182,9 +185,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -636,6 +636,394 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Training and Result";
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel6.Controls.Add(this.label56, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label57, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label58, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label59, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.abcTrainPP, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.abcTrainPN, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.label62, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.abcTrainNP, 2, 1);
+            this.tableLayoutPanel6.Controls.Add(this.abcTrainNN, 2, 2);
+            this.tableLayoutPanel6.Controls.Add(this.label65, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.abcTrainAccuracy, 1, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(6, 732);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 4;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.54545F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(205, 90);
+            this.tableLayoutPanel6.TabIndex = 8;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(72, 2);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(44, 13);
+            this.label56.TabIndex = 0;
+            this.label56.Text = "Positive";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(139, 2);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(50, 13);
+            this.label57.TabIndex = 0;
+            this.label57.Text = "Negative";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(5, 27);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(44, 13);
+            this.label58.TabIndex = 1;
+            this.label58.Text = "Positive";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(5, 48);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(50, 13);
+            this.label59.TabIndex = 1;
+            this.label59.Text = "Negative";
+            // 
+            // abcTrainPP
+            // 
+            this.abcTrainPP.AutoSize = true;
+            this.abcTrainPP.Location = new System.Drawing.Point(72, 27);
+            this.abcTrainPP.Name = "abcTrainPP";
+            this.abcTrainPP.Size = new System.Drawing.Size(10, 13);
+            this.abcTrainPP.TabIndex = 1;
+            this.abcTrainPP.Text = ".";
+            // 
+            // abcTrainPN
+            // 
+            this.abcTrainPN.AutoSize = true;
+            this.abcTrainPN.Location = new System.Drawing.Point(72, 48);
+            this.abcTrainPN.Name = "abcTrainPN";
+            this.abcTrainPN.Size = new System.Drawing.Size(10, 13);
+            this.abcTrainPN.TabIndex = 1;
+            this.abcTrainPN.Text = ".";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(5, 2);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(55, 13);
+            this.label62.TabIndex = 0;
+            this.label62.Text = "ABC Train";
+            // 
+            // abcTrainNP
+            // 
+            this.abcTrainNP.AutoSize = true;
+            this.abcTrainNP.Location = new System.Drawing.Point(139, 27);
+            this.abcTrainNP.Name = "abcTrainNP";
+            this.abcTrainNP.Size = new System.Drawing.Size(10, 13);
+            this.abcTrainNP.TabIndex = 2;
+            this.abcTrainNP.Text = ".";
+            // 
+            // abcTrainNN
+            // 
+            this.abcTrainNN.AutoSize = true;
+            this.abcTrainNN.Location = new System.Drawing.Point(139, 48);
+            this.abcTrainNN.Name = "abcTrainNN";
+            this.abcTrainNN.Size = new System.Drawing.Size(10, 13);
+            this.abcTrainNN.TabIndex = 3;
+            this.abcTrainNN.Text = ".";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(5, 68);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(51, 13);
+            this.label65.TabIndex = 1;
+            this.label65.Text = "accuracy";
+            // 
+            // abcTrainAccuracy
+            // 
+            this.abcTrainAccuracy.AutoSize = true;
+            this.abcTrainAccuracy.Location = new System.Drawing.Point(72, 68);
+            this.abcTrainAccuracy.Name = "abcTrainAccuracy";
+            this.abcTrainAccuracy.Size = new System.Drawing.Size(10, 13);
+            this.abcTrainAccuracy.TabIndex = 3;
+            this.abcTrainAccuracy.Text = ".";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel5.Controls.Add(this.label34, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label45, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label47, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label48, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.abcTestPP, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.abcTestPN, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label51, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.abcTestNP, 2, 1);
+            this.tableLayoutPanel5.Controls.Add(this.abcTestNN, 2, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label54, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.abcTestAccuracy, 1, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(217, 732);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.54545F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(205, 90);
+            this.tableLayoutPanel5.TabIndex = 8;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(72, 2);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(44, 13);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Positive";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(139, 2);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(50, 13);
+            this.label45.TabIndex = 0;
+            this.label45.Text = "Negative";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(5, 27);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(44, 13);
+            this.label47.TabIndex = 1;
+            this.label47.Text = "Positive";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(5, 48);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(50, 13);
+            this.label48.TabIndex = 1;
+            this.label48.Text = "Negative";
+            // 
+            // abcTestPP
+            // 
+            this.abcTestPP.AutoSize = true;
+            this.abcTestPP.Location = new System.Drawing.Point(72, 27);
+            this.abcTestPP.Name = "abcTestPP";
+            this.abcTestPP.Size = new System.Drawing.Size(10, 13);
+            this.abcTestPP.TabIndex = 1;
+            this.abcTestPP.Text = ".";
+            // 
+            // abcTestPN
+            // 
+            this.abcTestPN.AutoSize = true;
+            this.abcTestPN.Location = new System.Drawing.Point(72, 48);
+            this.abcTestPN.Name = "abcTestPN";
+            this.abcTestPN.Size = new System.Drawing.Size(10, 13);
+            this.abcTestPN.TabIndex = 1;
+            this.abcTestPN.Text = ".";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(5, 2);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(52, 13);
+            this.label51.TabIndex = 0;
+            this.label51.Text = "ABC Test";
+            // 
+            // abcTestNP
+            // 
+            this.abcTestNP.AutoSize = true;
+            this.abcTestNP.Location = new System.Drawing.Point(139, 27);
+            this.abcTestNP.Name = "abcTestNP";
+            this.abcTestNP.Size = new System.Drawing.Size(10, 13);
+            this.abcTestNP.TabIndex = 2;
+            this.abcTestNP.Text = ".";
+            // 
+            // abcTestNN
+            // 
+            this.abcTestNN.AutoSize = true;
+            this.abcTestNN.Location = new System.Drawing.Point(139, 48);
+            this.abcTestNN.Name = "abcTestNN";
+            this.abcTestNN.Size = new System.Drawing.Size(10, 13);
+            this.abcTestNN.TabIndex = 3;
+            this.abcTestNN.Text = ".";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(5, 68);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(51, 13);
+            this.label54.TabIndex = 1;
+            this.label54.Text = "accuracy";
+            // 
+            // abcTestAccuracy
+            // 
+            this.abcTestAccuracy.AutoSize = true;
+            this.abcTestAccuracy.Location = new System.Drawing.Point(72, 68);
+            this.abcTestAccuracy.Name = "abcTestAccuracy";
+            this.abcTestAccuracy.Size = new System.Drawing.Size(10, 13);
+            this.abcTestAccuracy.TabIndex = 3;
+            this.abcTestAccuracy.Text = ".";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label13, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label24, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label25, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.annTestPP, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.annTestPN, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label29, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.annTestNP, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.annTestNN, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label32, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.annTestAccuracy, 1, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(217, 636);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.54545F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(205, 90);
+            this.tableLayoutPanel3.TabIndex = 8;
+            this.tableLayoutPanel3.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(72, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Positive";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(139, 2);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Negative";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(5, 27);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(44, 13);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Positive";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(5, 48);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(50, 13);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Negative";
+            // 
+            // annTestPP
+            // 
+            this.annTestPP.AutoSize = true;
+            this.annTestPP.Location = new System.Drawing.Point(72, 27);
+            this.annTestPP.Name = "annTestPP";
+            this.annTestPP.Size = new System.Drawing.Size(10, 13);
+            this.annTestPP.TabIndex = 1;
+            this.annTestPP.Text = ".";
+            // 
+            // annTestPN
+            // 
+            this.annTestPN.AutoSize = true;
+            this.annTestPN.Location = new System.Drawing.Point(72, 48);
+            this.annTestPN.Name = "annTestPN";
+            this.annTestPN.Size = new System.Drawing.Size(10, 13);
+            this.annTestPN.TabIndex = 1;
+            this.annTestPN.Text = ".";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(5, 2);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(54, 13);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "ANN Test";
+            // 
+            // annTestNP
+            // 
+            this.annTestNP.AutoSize = true;
+            this.annTestNP.Location = new System.Drawing.Point(139, 27);
+            this.annTestNP.Name = "annTestNP";
+            this.annTestNP.Size = new System.Drawing.Size(10, 13);
+            this.annTestNP.TabIndex = 2;
+            this.annTestNP.Text = ".";
+            // 
+            // annTestNN
+            // 
+            this.annTestNN.AutoSize = true;
+            this.annTestNN.Location = new System.Drawing.Point(139, 48);
+            this.annTestNN.Name = "annTestNN";
+            this.annTestNN.Size = new System.Drawing.Size(10, 13);
+            this.annTestNN.TabIndex = 3;
+            this.annTestNN.Text = ".";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(5, 68);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(51, 13);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "accuracy";
+            // 
+            // annTestAccuracy
+            // 
+            this.annTestAccuracy.AutoSize = true;
+            this.annTestAccuracy.Location = new System.Drawing.Point(72, 68);
+            this.annTestAccuracy.Name = "annTestAccuracy";
+            this.annTestAccuracy.Size = new System.Drawing.Size(10, 13);
+            this.annTestAccuracy.TabIndex = 3;
+            this.annTestAccuracy.Text = ".";
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
@@ -664,6 +1052,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(205, 90);
             this.tableLayoutPanel4.TabIndex = 8;
+            this.tableLayoutPanel4.Visible = false;
             // 
             // label35
             // 
@@ -912,6 +1301,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.77922F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(205, 79);
             this.tableLayoutPanel2.TabIndex = 2;
+            this.tableLayoutPanel2.Visible = false;
             // 
             // label20
             // 
@@ -1050,6 +1440,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 90);
             this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.Visible = false;
             // 
             // label18
             // 
@@ -1190,393 +1581,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.Controls.Add(this.label5, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label13, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label24, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label25, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.annTestPP, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.annTestPN, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label29, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.annTestNP, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.annTestNN, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label32, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.annTestAccuracy, 1, 3);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(217, 636);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.54545F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(205, 90);
-            this.tableLayoutPanel3.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(72, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Positive";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(139, 2);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Negative";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(5, 27);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(44, 13);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Positive";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 48);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(50, 13);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "Negative";
-            // 
-            // annTestPP
-            // 
-            this.annTestPP.AutoSize = true;
-            this.annTestPP.Location = new System.Drawing.Point(72, 27);
-            this.annTestPP.Name = "annTestPP";
-            this.annTestPP.Size = new System.Drawing.Size(10, 13);
-            this.annTestPP.TabIndex = 1;
-            this.annTestPP.Text = ".";
-            // 
-            // annTestPN
-            // 
-            this.annTestPN.AutoSize = true;
-            this.annTestPN.Location = new System.Drawing.Point(72, 48);
-            this.annTestPN.Name = "annTestPN";
-            this.annTestPN.Size = new System.Drawing.Size(10, 13);
-            this.annTestPN.TabIndex = 1;
-            this.annTestPN.Text = ".";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(5, 2);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(54, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "ANN Test";
-            // 
-            // annTestNP
-            // 
-            this.annTestNP.AutoSize = true;
-            this.annTestNP.Location = new System.Drawing.Point(139, 27);
-            this.annTestNP.Name = "annTestNP";
-            this.annTestNP.Size = new System.Drawing.Size(10, 13);
-            this.annTestNP.TabIndex = 2;
-            this.annTestNP.Text = ".";
-            // 
-            // annTestNN
-            // 
-            this.annTestNN.AutoSize = true;
-            this.annTestNN.Location = new System.Drawing.Point(139, 48);
-            this.annTestNN.Name = "annTestNN";
-            this.annTestNN.Size = new System.Drawing.Size(10, 13);
-            this.annTestNN.TabIndex = 3;
-            this.annTestNN.Text = ".";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(5, 68);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(51, 13);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "accuracy";
-            // 
-            // annTestAccuracy
-            // 
-            this.annTestAccuracy.AutoSize = true;
-            this.annTestAccuracy.Location = new System.Drawing.Point(72, 68);
-            this.annTestAccuracy.Name = "annTestAccuracy";
-            this.annTestAccuracy.Size = new System.Drawing.Size(10, 13);
-            this.annTestAccuracy.TabIndex = 3;
-            this.annTestAccuracy.Text = ".";
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel5.Controls.Add(this.label34, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label45, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label47, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label48, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.abcTestPP, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.abcTestPN, 1, 2);
-            this.tableLayoutPanel5.Controls.Add(this.label51, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.abcTestNP, 2, 1);
-            this.tableLayoutPanel5.Controls.Add(this.abcTestNN, 2, 2);
-            this.tableLayoutPanel5.Controls.Add(this.label54, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.abcTestAccuracy, 1, 3);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(217, 732);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.54545F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(205, 90);
-            this.tableLayoutPanel5.TabIndex = 8;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(72, 2);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(44, 13);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Positive";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(139, 2);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(50, 13);
-            this.label45.TabIndex = 0;
-            this.label45.Text = "Negative";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(5, 27);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(44, 13);
-            this.label47.TabIndex = 1;
-            this.label47.Text = "Positive";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(5, 48);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(50, 13);
-            this.label48.TabIndex = 1;
-            this.label48.Text = "Negative";
-            // 
-            // abcTestPP
-            // 
-            this.abcTestPP.AutoSize = true;
-            this.abcTestPP.Location = new System.Drawing.Point(72, 27);
-            this.abcTestPP.Name = "abcTestPP";
-            this.abcTestPP.Size = new System.Drawing.Size(10, 13);
-            this.abcTestPP.TabIndex = 1;
-            this.abcTestPP.Text = ".";
-            // 
-            // abcTestPN
-            // 
-            this.abcTestPN.AutoSize = true;
-            this.abcTestPN.Location = new System.Drawing.Point(72, 48);
-            this.abcTestPN.Name = "abcTestPN";
-            this.abcTestPN.Size = new System.Drawing.Size(10, 13);
-            this.abcTestPN.TabIndex = 1;
-            this.abcTestPN.Text = ".";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(5, 2);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(52, 13);
-            this.label51.TabIndex = 0;
-            this.label51.Text = "ABC Test";
-            // 
-            // abcTestNP
-            // 
-            this.abcTestNP.AutoSize = true;
-            this.abcTestNP.Location = new System.Drawing.Point(139, 27);
-            this.abcTestNP.Name = "abcTestNP";
-            this.abcTestNP.Size = new System.Drawing.Size(10, 13);
-            this.abcTestNP.TabIndex = 2;
-            this.abcTestNP.Text = ".";
-            // 
-            // abcTestNN
-            // 
-            this.abcTestNN.AutoSize = true;
-            this.abcTestNN.Location = new System.Drawing.Point(139, 48);
-            this.abcTestNN.Name = "abcTestNN";
-            this.abcTestNN.Size = new System.Drawing.Size(10, 13);
-            this.abcTestNN.TabIndex = 3;
-            this.abcTestNN.Text = ".";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(5, 68);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(51, 13);
-            this.label54.TabIndex = 1;
-            this.label54.Text = "accuracy";
-            // 
-            // abcTestAccuracy
-            // 
-            this.abcTestAccuracy.AutoSize = true;
-            this.abcTestAccuracy.Location = new System.Drawing.Point(72, 68);
-            this.abcTestAccuracy.Name = "abcTestAccuracy";
-            this.abcTestAccuracy.Size = new System.Drawing.Size(10, 13);
-            this.abcTestAccuracy.TabIndex = 3;
-            this.abcTestAccuracy.Text = ".";
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel6.Controls.Add(this.label56, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label57, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label58, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label59, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.abcTrainPP, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.abcTrainPN, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label62, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.abcTrainNP, 2, 1);
-            this.tableLayoutPanel6.Controls.Add(this.abcTrainNN, 2, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label65, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.abcTrainAccuracy, 1, 3);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(6, 732);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 4;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.54545F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86364F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(205, 90);
-            this.tableLayoutPanel6.TabIndex = 8;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(72, 2);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(44, 13);
-            this.label56.TabIndex = 0;
-            this.label56.Text = "Positive";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(139, 2);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(50, 13);
-            this.label57.TabIndex = 0;
-            this.label57.Text = "Negative";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(5, 27);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(44, 13);
-            this.label58.TabIndex = 1;
-            this.label58.Text = "Positive";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(5, 48);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(50, 13);
-            this.label59.TabIndex = 1;
-            this.label59.Text = "Negative";
-            // 
-            // abcTrainPP
-            // 
-            this.abcTrainPP.AutoSize = true;
-            this.abcTrainPP.Location = new System.Drawing.Point(72, 27);
-            this.abcTrainPP.Name = "abcTrainPP";
-            this.abcTrainPP.Size = new System.Drawing.Size(10, 13);
-            this.abcTrainPP.TabIndex = 1;
-            this.abcTrainPP.Text = ".";
-            // 
-            // abcTrainPN
-            // 
-            this.abcTrainPN.AutoSize = true;
-            this.abcTrainPN.Location = new System.Drawing.Point(72, 48);
-            this.abcTrainPN.Name = "abcTrainPN";
-            this.abcTrainPN.Size = new System.Drawing.Size(10, 13);
-            this.abcTrainPN.TabIndex = 1;
-            this.abcTrainPN.Text = ".";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(5, 2);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(55, 13);
-            this.label62.TabIndex = 0;
-            this.label62.Text = "ABC Train";
-            // 
-            // abcTrainNP
-            // 
-            this.abcTrainNP.AutoSize = true;
-            this.abcTrainNP.Location = new System.Drawing.Point(139, 27);
-            this.abcTrainNP.Name = "abcTrainNP";
-            this.abcTrainNP.Size = new System.Drawing.Size(10, 13);
-            this.abcTrainNP.TabIndex = 2;
-            this.abcTrainNP.Text = ".";
-            // 
-            // abcTrainNN
-            // 
-            this.abcTrainNN.AutoSize = true;
-            this.abcTrainNN.Location = new System.Drawing.Point(139, 48);
-            this.abcTrainNN.Name = "abcTrainNN";
-            this.abcTrainNN.Size = new System.Drawing.Size(10, 13);
-            this.abcTrainNN.TabIndex = 3;
-            this.abcTrainNN.Text = ".";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(5, 68);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(51, 13);
-            this.label65.TabIndex = 1;
-            this.label65.Text = "accuracy";
-            // 
-            // abcTrainAccuracy
-            // 
-            this.abcTrainAccuracy.AutoSize = true;
-            this.abcTrainAccuracy.Location = new System.Drawing.Point(72, 68);
-            this.abcTrainAccuracy.Name = "abcTrainAccuracy";
-            this.abcTrainAccuracy.Size = new System.Drawing.Size(10, 13);
-            this.abcTrainAccuracy.TabIndex = 3;
-            this.abcTrainAccuracy.Text = ".";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1615,6 +1619,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.epochNumber)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
@@ -1627,12 +1637,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
