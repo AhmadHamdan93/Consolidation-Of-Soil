@@ -41,7 +41,7 @@ namespace ANNtrainingbyABC
             //limit = food * D ;
             limit = 50;
             trail = new int[food];
-            population = solutions;
+            //population = solutions;
             probability = new double[food];
             OptimumSol = new double[D + 1];
             rand = new Random();
@@ -56,6 +56,23 @@ namespace ANNtrainingbyABC
             MAE_Errors = new double[Epocs];
             RMSE_Errors = new double[Epocs];
             this.classification = classification;
+            init(food, D);
+        }
+
+        void init(int f, int d)
+        {
+
+            population = new double[f, d + 1];
+            for (int j = 0; j < f; j++)
+            {
+                for (int k = 0; k < d; k++)
+                {
+                    population[j, k] = -2 + rand.NextDouble() * 4;
+                }
+                population[j, d] = Evaluate(fetchRow(j));
+            }
+
+            //return temp;
         }
 
         public double[] getBestSolution()

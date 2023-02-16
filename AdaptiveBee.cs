@@ -12,6 +12,7 @@ namespace ANNtrainingbyABC
         int food;
         int iteration;
         int limit;
+        int[] limitArray;
         int D;
         int[] trail;
         double[] probability;
@@ -41,13 +42,14 @@ namespace ANNtrainingbyABC
             food = solutions.GetLength(0);
             D = solutions.GetLength(1) - 1;
             iteration = Epocs; //1000; //300;
-            //limit = food * D ;
-            limit = 50;
+            limit = food * D ;
+            limitArray = new int[food];
+            rand = new Random();
+            //limit = 50;
             trail = new int[food];
-            population = solutions;
+            
             probability = new double[food];
             OptimumSol = new double[D + 1];
-            rand = new Random();
             ub = Convert.ToInt32(findMaxValue(solutions));
             lb = Convert.ToInt32(findMinValue(solutions));
             trainingData = input;
@@ -59,6 +61,42 @@ namespace ANNtrainingbyABC
             MAE_Errors = new double[Epocs];
             RMSE_Errors = new double[Epocs];
             this.classification = classification;
+            for(int i = 0; i < food; i++)
+            {
+                limitArray[i] = food * D;
+            }
+
+            //population = solutions;  
+            init(food, D);
+        }
+        public void changeLimit()
+        {
+            double sumFitness = 0;
+            for (int i = 0; i < food; i++)
+            {
+                sumFitness += Evaluate(fetchRow(i));
+            }
+            for(int i=0; i < food; i++)
+            {
+                //limitArray[i]= Convert.ToInt32( Evaluate(fetchRow(i)) *food *food*D/sumFitness);
+                limitArray[i] = Convert.ToInt32(Evaluate(fetchRow(i)) * 500 / sumFitness);
+            }
+        }
+
+        void init(int f, int d)
+        {
+
+            population = new double[f, d + 1];
+            for(int j = 0; j < f; j++)
+            {
+                for(int k = 0; k < d; k++)
+                {
+                    population[j, k] = -2 + rand.NextDouble() * 4;
+                }
+                population[j, d] = Evaluate(fetchRow(j));
+            }
+            
+            //return temp;
         }
 
         public double[] getBestSolution()
@@ -118,6 +156,7 @@ namespace ANNtrainingbyABC
                 findProbability();
                 LookerBee();
                 SelectOptimumSolution();
+                changeLimit();
                 ScouterBee();
 
                 // save array of error
@@ -293,7 +332,7 @@ namespace ANNtrainingbyABC
         {
             for (int i = 0; i < food; i++)
             {
-                if ((trail[i] >= limit) || (population[i, D] > MeanOfProbability))
+                if ((trail[i] >= limitArray[i]) || (population[i, D] > MeanOfProbability))
                 {
                     initSol(i);
                     trail[i] = 0;

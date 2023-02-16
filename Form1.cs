@@ -36,7 +36,7 @@ namespace ANNtrainingbyABC
         double[][] trainingData;
         int countOfRow = 0;
         int countOfColumn = 0;
-        int EPOCHS;
+        int EPOCHS = 50;
         int ANNLayers;
         int[] NodesOfHiddenLayer = { 10 };
         int Food;
@@ -306,7 +306,7 @@ namespace ANNtrainingbyABC
             if (regress.Checked) classification = false;
             Food = Convert.ToInt32(food.Value.ToString());
             //Limit = Convert.ToInt32(limit.Value.ToString());
-            EPOCHS = Convert.ToInt32(epochNumber.Value.ToString());
+            //EPOCHS = Convert.ToInt32(epochNumber.Value.ToString());
             ANNLayers = Convert.ToInt32(layerNumber.Value.ToString());
             // ---------------------------------------------------------------
             // Create array contain elements number of nodes for nn
@@ -322,8 +322,8 @@ namespace ANNtrainingbyABC
             nn = new NeuralNetwork(Layers)
             {
                 Epocs = EPOCHS,
-                Alpha = 0.9,//0.9
-                Beta = 0.02,//0.02
+                Alpha = 0.7,//0.9
+                Beta = 0.05,//0.02
                 MomentumParameter = true,
                 Rnd = new Random(12345),
                 Rows = Food,
